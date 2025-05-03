@@ -1,0 +1,3 @@
+[submodule "first-nft/lib/forge-std"]
+	path = first-nft/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
