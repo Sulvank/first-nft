@@ -1,0 +1,11 @@
+{
+    "name": "NFT #1 - My first NFT",
+    "description": "NFT Collection for first NFT",
+    "image": "ipfs://bafybeig5hlyiqz4fxqoyfiszdycw5rk3juhwrwtjgz4yghteb6umc2glbm",
+    "attributes" : [
+        {
+            "trait_type": "Rarity",
+            "value": "0"
+        }
+    ]
+}

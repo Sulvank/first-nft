@@ -1,0 +1,43 @@
+//SPDX-License-Identifier: UNLICENSED
+
+pragma solidity 0.8.28;
+
+import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import {Strings} from "@openzeppelin/contracts/utils/Strings.sol";
+
+contract FirstNFTCollection is ERC721 {
+    using Strings for uint256; // Importing the Strings library for converting uint256 to string
+
+    uint256 public currentTokenId;
+    uint256 public totalSupply; // Set the total supply of NFTs
+    string public baseUri; // Base URI for the NFT metadata
+
+    event MintNFT(address userAddress_, uint256 tokenId_);
+
+    constructor(string memory name_, string memory symbol_, uint256 totalSupply_, string memory baseUri_) ERC721(name_, symbol_) {
+        totalSupply = totalSupply_;
+        baseUri = baseUri_;
+    }
+
+    function mint() external {
+        require(currentTokenId < totalSupply, "Sold out"); // Check if the total supply has been reached
+        _safeMint(msg.sender, currentTokenId);
+        currentTokenId++;
+
+        // Emit the event after minting the NFT
+        emit MintNFT(msg.sender, currentTokenId--);
+    }
+
+
+    function _baseURI() internal override view virtual  returns (string memory) {
+        return baseUri;
+    }
+    
+
+    function tokenURI(uint256 tokenId) public view override virtual returns (string memory) {
+        _requireOwned(tokenId);
+
+        string memory baseURI = _baseURI();
+        return bytes(baseURI).length > 0 ? string.concat(baseURI, tokenId.toString(), ".json") : "";
+    }
+}

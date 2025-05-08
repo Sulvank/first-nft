@@ -1,0 +1,11 @@
+{
+    "name": "NFT #2 - Explorador del Metaverso",
+    "description": "NFT Collection for first NFT",
+    "image": "ipfs://bafybeic5mdrummxxub3rvu3e2eyeoz5ulbplmqomwqvsucth7e4z37qowa",
+    "attributes" : [
+        {
+            "trait_type": "Rarity",
+            "value": "0"
+        }
+    ]
+}
