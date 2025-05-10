@@ -1,4 +1,4 @@
-//SPDX-License-Identifier: UNLICENSED
+//SPDX-License-Identifier: MIT
 
 pragma solidity 0.8.28;
 
@@ -22,10 +22,11 @@ contract FirstNFTCollection is ERC721 {
     function mint() external {
         require(currentTokenId < totalSupply, "Sold out"); // Check if the total supply has been reached
         _safeMint(msg.sender, currentTokenId);
+        uint256 id = currentTokenId; // Store the current token ID in a local variable
         currentTokenId++;
 
         // Emit the event after minting the NFT
-        emit MintNFT(msg.sender, currentTokenId--);
+        emit MintNFT(msg.sender, id);
     }
 
 
