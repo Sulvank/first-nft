@@ -66,14 +66,18 @@ forge script script/DeployNFTColecction.s.sol \
 
 ```
 first-nft/
-├── lib/                          # OpenZeppelin libraries
+├── diagrams/                      # Project flowcharts (e.g. first_nft_flow.png)
+├── lib/                           # OpenZeppelin libraries (submodules)
 ├── script/
 │   └── DeployNFTColecction.s.sol  # Deployment script using Foundry
 ├── src/
 │   └── FirstNFTCollection.sol     # Main ERC721 contract
-├── .env                         # Environment variables (e.g., RPC URL, private key)
-├── foundry.toml                 # Foundry configuration
-└── README.md                    # Project documentation
+├── test/                          # Unit tests for contract and script
+│   ├── FirstNFTCollection.t.sol   # Tests for smart contract functionality
+│   └── DeployNFTScriptTest.t.sol  # Test to verify deployment script runs correctly
+├── .env                           # Environment variables (e.g., PRIVATE_KEY)
+├── foundry.toml                   # Foundry configuration
+└── README.md                      # Project documentation
 ```
 
 ---
